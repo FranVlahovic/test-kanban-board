@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <dialog class="task-dialog">
+        <form class="task-form" action="/" method="get">
+            <h3>Task Details</h3>
+            <p>Enter your Task name and category</p>
+            <input type="text" placeholder="Name" class="task-name-input" required>
+            <input type="text" placeholder="Category" class="task-category-input" required>
+            <div class="form-buttons">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="confirm-btn">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="confirm">
+        <h3>Delete Task?</h3>
+        <p>This task will be permanently deleted.</p>
+        <div class="form-buttons">
+            <button type="button" class="cancel-btn">Cancel</button>
+            <button type="submit" class="delete-btn">Delete</button>
+        </div>
+    </dialog>
+
+    <header id="header">
+        <h1 class="header-logo"><img src="https://em-content.zobj.net/source/apple/391/writing-hand_light-skin-tone_270d-1f3fb_1f3fb.png" alt="Hand Writing Emoji">KanbanBoard</h1>
+    </header>
+    <main id="main">
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">To Do</h2>
+                <span class="task-counter">0</span>
+            </div>
+            
+            <div class="task-container">
+                <div class="task-card">
+                    <h2 class="card-name">This is just a test</h2>
+                    <div class="card-buttons">
+                        <button><img src="assets/icons/arrow-down-circle.svg" alt="Down Arrow Icon"></button>
+                        <button><img src="assets/icons/delete.svg" alt="Delete Icon"></button>
+                    </div>
+                    <div class="card-category">UI/UX Design</div>
+                    <img src="assets/icons/account-circle.svg" class="card-profile-image"></img>
+                </div>
+            </div>
+
+            <button class="add-task">+ Add Task</button>
+        </div>
+    </main>
+    <footer id="footer"><a href="https://github.com/FranVlahovic"><img src="assets/icons/github.svg" alt="GitHub Icon" class="github-icon"></a></footer>
+</body>
+</html>
