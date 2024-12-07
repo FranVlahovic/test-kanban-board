@@ -2,19 +2,77 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
   
-  :root {
-    --primary-color: #111111;
-    --secondary-color: #eeeeee;
+:root {
+    --primary-color: #e0e0e0;
+    --secondary-color: #f3f3f3;
+    --button-color: #cecece;
     --font-primary: #ddbc8d;
     --icons-primary-color: brightness(0) saturate(100%) invert(97%) sepia(9%) saturate(339%) hue-rotate(259deg) brightness(118%) contrast(87%);
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     display: block;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+header {
+    width: 100%;
+    padding: 1.5em;
+}
+.header-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.header-logo img {
+    width: 3rem;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.task-counter {
+    background-color: var(--button-color);
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+}
+
+.task-card {
+    display: grid;
+    grid-template-areas: 
+    "name" "buttons"
+    "category" "profile";
+    background-color: var(--secondary-color);
+    padding: 1em;
+    border-radius: 0.8em;
+}
