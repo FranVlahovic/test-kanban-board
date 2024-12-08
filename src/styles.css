@@ -7,15 +7,37 @@
 :root {
     --primary-color: #e0e0e0;
     --secondary-color: #f3f3f3;
+    --font-primary: #474747;
+    --font-secondary: #5f5f5f;
     --button-color: #cecece;
-    --font-primary: #ddbc8d;
-    --icons-primary-color: brightness(0) saturate(100%) invert(97%) sepia(9%) saturate(339%) hue-rotate(259deg) brightness(118%) contrast(87%);
+}
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    font-size: 1.4em;
+    color: var(--font-primary);
+}
+
+h3 {
+    font-size: 1.2em;
+    color: var(--font-secondary);
+}
+
+h4 {
+    font-size: 1em;
 }
 
 img {
     max-width: 100%;
     display: block;
     height: auto;
+}
+
+button {
+    cursor: pointer;
 }
 
 body {
@@ -28,12 +50,15 @@ body {
 header {
     width: 100%;
     padding: 1.5em;
+    padding-bottom: 3em;
 }
 .header-logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
+    color: #474747;
+    font-style: italic;
 }
 .header-logo img {
     width: 3rem;
@@ -45,7 +70,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 80%;
-
+    gap: 3em;
 }
 
 .main-container {
@@ -53,6 +78,12 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
 }
 
 .container-header {
@@ -63,16 +94,78 @@ main {
 
 .task-counter {
     background-color: var(--button-color);
-    border-radius: 50%;
+    border-radius: 2em;
     padding: 0.2em 0.5em;
+    color: var(--font-secondary);
+    font-weight: bold;
 }
 
 .task-card {
     display: grid;
     grid-template-areas: 
-    "name" "buttons"
-    "category" "profile";
+    "name buttons"
+    "category profile";
+    gap:0.6em;
     background-color: var(--secondary-color);
     padding: 1em;
     border-radius: 0.8em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card-name {
+    grid-area: name;
+}
+.card-buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4em;
+}
+.card-buttons button {
+    width: 1.4rem;
+    border: none;
+}
+.move-task-btn img {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(36%) saturate(7331%) hue-rotate(182deg) brightness(92%) contrast(80%);
+}
+.delete-task-btn img {
+    filter: brightness(0) saturate(100%) invert(22%) sepia(53%) saturate(5791%) hue-rotate(344deg) brightness(82%) contrast(100%);
+}
+.card-category {
+    grid-area: category;
+    background-color: #1a86d1;
+    color: var(--secondary-color);
+    font-weight: 600;
+    align-self: end;
+    padding: 0.4em 0.6em;
+    border-radius: 2em;
+    width: fit-content;
+}
+.card-profile-image {
+    grid-area: profile;
+    width: 2.3rem;
+    align-self: end;
+    justify-self: end;
+}
+.card-profile-image {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(5%) saturate(0%) hue-rotate(189deg) brightness(100%) contrast(94%);
+}
+.add-task {
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 0.6em;
+    padding: 1.2em;
+    font-size: 1em;
+    color: var(--font-secondary);
+    font-weight: bold;
+}
+
+footer {
+    padding-top: 7em;
+}
+footer a {
+    justify-content: center;
+}
+footer img {
+    width: 2.5em;
+    filter: brightness(0) saturate(100%) invert(36%) sepia(5%) saturate(0%) hue-rotate(189deg) brightness(100%) contrast(94%);
 }

@@ -11,8 +11,8 @@
         <form class="task-form" action="/" method="get">
             <h3>Task Details</h3>
             <p>Enter your Task name and category</p>
-            <input type="text" placeholder="Name" class="task-name-input" required>
-            <input type="text" placeholder="Category" class="task-category-input" required>
+            <input type="text" placeholder="Name" class="task-name-input" minlength="3" maxlength="30" required>
+            <input type="text" placeholder="Category" class="task-category-input" minlength="3" maxlength="20" required>
             <div class="form-buttons">
                 <button type="button" class="cancel-btn">Cancel</button>
                 <button type="submit" class="confirm-btn">Confirm</button>
@@ -38,20 +38,30 @@
                 <span class="task-counter">0</span>
             </div>
             
-            <div class="task-container">
-                <div class="task-card">
-                    <h2 class="card-name">This is just a test</h2>
-                    <div class="card-buttons">
-                        <button><img src="assets/icons/arrow-down-circle.svg" alt="Down Arrow Icon"></button>
-                        <button><img src="assets/icons/delete.svg" alt="Delete Icon"></button>
-                    </div>
-                    <div class="card-category">UI/UX Design</div>
-                    <img src="assets/icons/account-circle.svg" class="card-profile-image"></img>
-                </div>
+            <div id="todo-container" class="task-container">
             </div>
 
             <button class="add-task">+ Add Task</button>
         </div>
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">In Progress</h2>
+                <span class="task-counter">0</span>
+            </div>
+            
+            <div id="inprogress-container" class="task-container">
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">Done</h2>
+                <span class="task-counter">0</span>
+            </div>
+            
+            <div id="done-container" class="task-container">
+            </div>
+        </div>
+
     </main>
     <footer id="footer"><a href="https://github.com/FranVlahovic"><img src="assets/icons/github.svg" alt="GitHub Icon" class="github-icon"></a></footer>
 </body>
