@@ -92,7 +92,7 @@ main {
     gap: 0.5em;
 }
 
-.task-counter {
+.task-counter, .inprogress-counter, .done-counter {
     background-color: var(--button-color);
     border-radius: 2em;
     padding: 0.2em 0.5em;
