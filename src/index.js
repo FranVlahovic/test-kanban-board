@@ -6,18 +6,45 @@ import { renderTaskToDo, todoArray, initializeTasks } from './modules/toDo';
 import Storage from "./modules/storage";
 const { saveTasksLocal } = Storage();
 
+const confirmDialog = document.querySelector('.confirm');
+
+const openConfirmDialog = () => {
+    confirmDialog.showModal();
+};
+
+const closeConfirmDialog = () => {
+    confirmDialog.close();
+};
+
+const cancelConfirmDialog = () => {
+    const cancelConfirm = document.querySelector('.confirm-cancel-btn');
+
+    cancelConfirm.addEventListener("click", () => {
+        closeConfirmDialog();
+    })
+}
+
 export const taskEventListeners = () => { 
     const moveTaskBtns = document.querySelectorAll('.move-task-btn'); 
     const deleteTaskBtns = document.querySelectorAll('.delete-task-btn'); 
-    const completeTaskBtns = document.querySelectorAll('.complete-task-btn'); 
+    const completeTaskBtns = document.querySelectorAll('.complete-task-btn');
+    const confirmBtn = document.querySelector('.delete-btn');
     
     deleteTaskBtns.forEach(deleteTaskBtn => { 
         deleteTaskBtn.addEventListener("click", (e) => {
-            const taskId = e.currentTarget.dataset.id; 
-            handleDeleteTask(taskId, todoArray);
-            handleDeleteTask(taskId, inProgressArray);
+            const taskId = e.currentTarget.dataset.id;
+            openConfirmDialog();
+            confirmBtn.setAttribute('data-id', taskId);
         }); 
     });
+
+    confirmBtn.addEventListener("click", (e) => {
+        const taskId = e.currentTarget.dataset.id;
+        e.preventDefault();
+        closeConfirmDialog();
+        handleDeleteTask(taskId, todoArray);
+        handleDeleteTask(taskId, inProgressArray);
+    })
 
     moveTaskBtns.forEach(moveTaskBtn => {
         moveTaskBtn.addEventListener("click", (e) => {
@@ -45,7 +72,7 @@ export const handleDeleteTask = (taskId, array) => {
         renderTaskInProgress();
         taskCounter(todoArray, 'task-counter');
         taskCounter(inProgressArray, 'inprogress-counter');
-    }
+    };
 };
 
 
@@ -63,3 +90,4 @@ initializeInProgress();
 openTaskDialogBtn();
 cancelAddTask();
 addTask();
+cancelConfirmDialog();

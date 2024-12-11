@@ -130,6 +130,10 @@ main {
 .delete-task-btn img {
     filter: brightness(0) saturate(100%) invert(22%) sepia(53%) saturate(5791%) hue-rotate(344deg) brightness(82%) contrast(100%);
 }
+.done-task-btn img {
+    filter: brightness(0) saturate(100%) invert(23%) sepia(83%) saturate(3703%) hue-rotate(122deg) brightness(88%) contrast(92%);
+}
+
 .card-category {
     grid-area: category;
     background-color: #1a86d1;
@@ -157,6 +161,48 @@ main {
     font-size: 1em;
     color: var(--font-secondary);
     font-weight: bold;
+}
+
+dialog {
+    border: none;
+    border-radius: 1em;
+}
+
+.task-form, .confirm-div {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    padding-bottom: 0;
+    align-items: center;
+    gap: 0.5em;
+    background-color: var(--primary-color);
+}
+
+.task-form input {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 2px solid var(--button-color);
+}
+.task-form ::placeholder {
+    color: var(--button-color);
+}
+.form-buttons {
+    display: flex;
+    border-top: 2px solid var(--button-color);
+    width: 100%;
+}
+.form-buttons button {
+    background-color: var(--primary-color);
+    color: #1a86d1;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.8em;
+    border: none;
+    font-size: 1em;
+}
+.form-buttons .cancel-btn {
+    border-right: 2px solid var(--button-color);
 }
 
 footer {

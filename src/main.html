@@ -10,7 +10,7 @@
     <dialog class="task-dialog">
         <form class="task-form" action="/" method="get">
             <h3>Task Details</h3>
-            <p>Enter your Task name and category</p>
+            <p>Enter your Task name and category.</p>
             <input type="text" placeholder="Name" class="task-name-input" minlength="3" maxlength="30" required>
             <input type="text" placeholder="Category" class="task-category-input" minlength="3" maxlength="20" required>
             <div class="form-buttons">
@@ -20,12 +20,15 @@
         </form>
     </dialog>
     <dialog class="confirm">
-        <h3>Delete Task?</h3>
-        <p>This task will be permanently deleted.</p>
-        <div class="form-buttons">
-            <button type="button" class="cancel-btn">Cancel</button>
+        <div class="confirm-div">
+            <h3>Delete Task?</h3>
+            <p>This task will be permanently deleted.</p>
+            <div class="form-buttons">
+            <button type="button" class="confirm-cancel-btn">Cancel</button>
             <button type="submit" class="delete-btn">Delete</button>
+            </div>
         </div>
+        
     </dialog>
 
     <header id="header">
