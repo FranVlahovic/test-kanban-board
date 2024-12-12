@@ -1,28 +1,26 @@
 import deleteIcon from "../assets/icons/delete.svg";
 import profileIcon from "../assets/icons/account-circle.svg";
-import doneIcon from "../assets/icons/check-circle.svg";
 import { renderTaskToDo, todoArray } from '../modules/toDo';
 import { taskEventListeners, taskCounter } from "../index";
-import { renderTaskDone, doneArray } from "../modules/done";
-
 
 import Storage from "./storage";
+import { renderTaskInProgress, inProgressArray } from "./inProgress";
 const { saveTasksLocal, loadTasksLocal } = Storage();
 
-let inProgressArray = [];
+let doneArray = [];
 
-export const addTaskInProgressArray = (task) => {
-    inProgressArray.push(task);
+export const addTaskDoneArray = (task) => {
+    doneArray.push(task);
     saveTasksLocal(todoArray, inProgressArray, doneArray);
 };
 
-export const handleMoveTask = (taskId, array) => {
+export const handleDoneTask = (taskId, array) => {
     taskId = Number(taskId);
 
     const taskIndex = array.findIndex(t => t.taskId === taskId);
     if(taskIndex !== -1){
-        const [movedTask] = array.splice(taskIndex, 1);
-        addTaskInProgressArray(movedTask);
+        const [mTask] = array.splice(taskIndex, 1);
+        addTaskDoneArray(mTask);
         saveTasksLocal(todoArray, inProgressArray, doneArray);
         renderTaskToDo();
         renderTaskInProgress();
@@ -33,16 +31,15 @@ export const handleMoveTask = (taskId, array) => {
     }
 };
 
-export const renderTaskInProgress = () => {
-    const inProgressContainer = document.getElementById('inprogress-container');
-    inProgressContainer.innerHTML = '';
+export const renderTaskDone = () => {
+    const doneContainer = document.getElementById('done-container');
+    doneContainer.innerHTML = '';
 
-    inProgressArray.forEach(({ taskId, taskName, taskCategory }) => {
-        inProgressContainer.innerHTML += `
+    doneArray.forEach(({ taskId, taskName, taskCategory }) => {
+        doneContainer.innerHTML += `
         <div class="task-card" data-id="${taskId}">
             <h2 class="card-name">${taskName}</h2>
             <div class="card-buttons">
-                <button class="done-task-btn" data-id="${taskId}"><img src="${doneIcon}" alt="Done Icon"></button>
                 <button class="delete-task-btn" data-id="${taskId}"><img src="${deleteIcon}" alt="Delete Icon"></button>
             </div>
             <div class="card-category">${taskCategory}</div>
@@ -52,11 +49,11 @@ export const renderTaskInProgress = () => {
     taskEventListeners();
 };
 
-export const initializeInProgress = () => { 
-    const { inProgressTasks } = loadTasksLocal();
-    inProgressArray = inProgressTasks;
-    renderTaskInProgress();
-    taskCounter(inProgressArray, 'inprogress-counter');
+export const initializeDone = () => { 
+    const { doneT } = loadTasksLocal();
+    doneArray = doneT;
+    renderTaskDone();
+    taskCounter(doneArray, 'done-counter');
 };
 
-export { inProgressArray };
+export { doneArray };

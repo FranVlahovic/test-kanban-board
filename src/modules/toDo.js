@@ -6,6 +6,7 @@ import { taskEventListeners, taskCounter } from "../index";
 
 import Storage from "./storage";
 import { inProgressArray } from "./inProgress";
+import { doneArray } from "./done";
 const { saveTasksLocal, loadTasksLocal } = Storage();
 
 //toDo.js
@@ -60,7 +61,7 @@ export const addTask = () => {
             addTaskInArray(createTask(taskInputValue, taskCategoryValue));
             resetTaskForm(taskInput, taskCategory);
             closeTaskDialog();
-            saveTasksLocal(todoArray, inProgressArray);
+            saveTasksLocal(todoArray, inProgressArray, doneArray);
             renderTaskToDo();
             taskCounter(todoArray, 'task-counter');
         };
@@ -79,7 +80,7 @@ export const cancelAddTask = () => {
 
 const addTaskInArray = (task) => {
     todoArray.push(task);
-    saveTasksLocal(todoArray, inProgressArray);
+    saveTasksLocal(todoArray, inProgressArray, doneArray);
 };
 
 export const renderTaskToDo = () => {

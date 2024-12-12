@@ -2,8 +2,9 @@ import "./styles.css";
 import { openTaskDialogBtn, cancelAddTask, addTask } from "./modules/toDo";
 import { handleMoveTask, renderTaskInProgress, inProgressArray, initializeInProgress } from "./modules/inProgress";
 import { renderTaskToDo, todoArray, initializeTasks } from './modules/toDo';
-
+import { handleDoneTask, renderTaskDone, doneArray, initializeDone } from "./modules/done";
 import Storage from "./modules/storage";
+
 const { saveTasksLocal } = Storage();
 
 const confirmDialog = document.querySelector('.confirm');
@@ -27,7 +28,7 @@ const cancelConfirmDialog = () => {
 export const taskEventListeners = () => { 
     const moveTaskBtns = document.querySelectorAll('.move-task-btn'); 
     const deleteTaskBtns = document.querySelectorAll('.delete-task-btn'); 
-    const completeTaskBtns = document.querySelectorAll('.complete-task-btn');
+    const completeTaskBtns = document.querySelectorAll('.done-task-btn');
     const confirmBtn = document.querySelector('.delete-btn');
     
     deleteTaskBtns.forEach(deleteTaskBtn => { 
@@ -44,6 +45,7 @@ export const taskEventListeners = () => {
         closeConfirmDialog();
         handleDeleteTask(taskId, todoArray);
         handleDeleteTask(taskId, inProgressArray);
+        handleDeleteTask(taskId, doneArray);
     })
 
     moveTaskBtns.forEach(moveTaskBtn => {
@@ -56,7 +58,7 @@ export const taskEventListeners = () => {
     completeTaskBtns.forEach(btn => {
         btn.addEventListener("click", (e) => {
             const taskId = e.currentTarget.dataset.id;
-            handleCompleteTask(taskId, inProgressArray);
+            handleDoneTask(taskId, inProgressArray);
         })
     })
 }
@@ -67,11 +69,13 @@ export const handleDeleteTask = (taskId, array) => {
     const taskIndex = array.findIndex(t => t.taskId === taskId);
     if(taskIndex !== -1){
         array.splice(taskIndex, 1);
-        saveTasksLocal(todoArray, inProgressArray);
+        saveTasksLocal(todoArray, inProgressArray, doneArray);
         renderTaskToDo();
         renderTaskInProgress();
+        renderTaskDone();
         taskCounter(todoArray, 'task-counter');
         taskCounter(inProgressArray, 'inprogress-counter');
+        taskCounter(doneArray, 'done-counter');
     };
 };
 
@@ -87,6 +91,7 @@ export const taskCounter = (array, counterClass) => {
 //Innit
 initializeTasks();
 initializeInProgress();
+initializeDone();
 openTaskDialogBtn();
 cancelAddTask();
 addTask();
