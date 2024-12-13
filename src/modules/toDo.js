@@ -1,6 +1,7 @@
 import deleteIcon from "../assets/icons/delete.svg";
 import moveIcon from "../assets/icons/arrow-down-circle.svg";
 import profileIcon from "../assets/icons/account-circle.svg";
+import editIcon from "../assets/icons/pencil.svg"
 
 import { taskEventListeners, taskCounter } from "../index";
 
@@ -36,12 +37,29 @@ export const openTaskDialogBtn = () => {
 
 const addTaskDialog = document.querySelector('.task-dialog');
 
-const openTaskDialog = () => {
+const setupTaskDialog = (task = null) => {
+     //Edit task
+    if (task){
+    taskInput.value = task.taskName;
+    taskCategory.value = task.taskCategory;
+    addTaskDialog.dataset.mode = 'edit';
+    addTaskDialog.dataset.taskId = task.taskId;
+    }
+    else {
+        resetTaskForm(taskInput, taskCategory);
+        addTaskDialog.dataset.mode = 'add';
+    }
+}
+
+export const openTaskDialog = (task = null) => {
+    setupTaskDialog(task);
     addTaskDialog.showModal();
+    document.body.classList.add('no-scroll');
 };
 
 const closeTaskDialog = () => {
     addTaskDialog.close();
+    document.body.classList.remove('no-scroll');
 };
 
 const resetTaskForm = (input, category) => {
@@ -56,9 +74,17 @@ export const addTask = () => {
         e.preventDefault();
         const taskInputValue = taskInput.value.trim();
         const taskCategoryValue = taskCategory.value.trim();
+        const mode = addTaskDialog.dataset.mode;
+        const taskId = addTaskDialog.dataset.taskId;
         
         if(taskInputValue && taskCategoryValue){
-            addTaskInArray(createTask(taskInputValue, taskCategoryValue));
+            //Edit task
+            if(mode === 'edit'){
+                updateTask(taskId, taskInputValue, taskCategoryValue);
+            }
+            else {
+                addTaskInArray(createTask(taskInputValue, taskCategoryValue));
+            }
             resetTaskForm(taskInput, taskCategory);
             closeTaskDialog();
             saveTasksLocal(todoArray, inProgressArray, doneArray);
@@ -93,6 +119,7 @@ export const renderTaskToDo = () => {
             <h2 class="card-name">${taskName}</h2>
             <div class="card-buttons">
                 <button class="move-task-btn" data-id="${taskId}"><img src="${moveIcon}" alt="Down Arrow Icon"></button>
+                <button class="edit-task-btn" data-id="${taskId}"><img src="${editIcon}" alt="Edit Icon"></button>
                 <button class="delete-task-btn" data-id="${taskId}"><img src="${deleteIcon}" alt="Delete Icon"></button>
             </div>
             <div class="card-category">${taskCategory}</div>
@@ -100,6 +127,19 @@ export const renderTaskToDo = () => {
         </div>`;
     });
     taskEventListeners();
+};
+
+//Edit task
+const updateTask = (taskId, name, category) => {
+    taskId = Number(taskId);
+    const taskIndex = todoArray.findIndex(t => t.taskId === taskId);
+    if(taskIndex !== -1){
+        todoArray[taskIndex].taskName = name;
+        todoArray[taskIndex].taskCategory = category;
+        saveTasksLocal(todoArray, inProgressArray, doneArray);
+        renderTaskToDo();
+        taskCounter(todoArray, 'task-counter');
+    }
 };
 
 export const initializeTasks = () => { 

@@ -133,6 +133,9 @@ main {
 .done-task-btn img {
     filter: brightness(0) saturate(100%) invert(23%) sepia(83%) saturate(3703%) hue-rotate(122deg) brightness(88%) contrast(92%);
 }
+.edit-task-btn img {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(5%) saturate(0%) hue-rotate(189deg) brightness(100%) contrast(94%);
+}
 
 .card-category {
     grid-area: category;
@@ -166,6 +169,13 @@ main {
 dialog {
     border: none;
     border-radius: 1em;
+    position: fixed;
+    top: 40%;
+    left: 15%;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 .task-form, .confirm-div {

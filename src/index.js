@@ -1,5 +1,5 @@
 import "./styles.css";
-import { openTaskDialogBtn, cancelAddTask, addTask } from "./modules/toDo";
+import { openTaskDialogBtn, cancelAddTask, addTask, openTaskDialog } from "./modules/toDo";
 import { handleMoveTask, renderTaskInProgress, inProgressArray, initializeInProgress } from "./modules/inProgress";
 import { renderTaskToDo, todoArray, initializeTasks } from './modules/toDo';
 import { handleDoneTask, renderTaskDone, doneArray, initializeDone } from "./modules/done";
@@ -11,10 +11,12 @@ const confirmDialog = document.querySelector('.confirm');
 
 const openConfirmDialog = () => {
     confirmDialog.showModal();
+    document.body.classList.add('no-scroll');
 };
 
 const closeConfirmDialog = () => {
     confirmDialog.close();
+    document.body.classList.remove('no-scroll');
 };
 
 const cancelConfirmDialog = () => {
@@ -30,6 +32,17 @@ export const taskEventListeners = () => {
     const deleteTaskBtns = document.querySelectorAll('.delete-task-btn'); 
     const completeTaskBtns = document.querySelectorAll('.done-task-btn');
     const confirmBtn = document.querySelector('.delete-btn');
+    const editTaskBtns = document.querySelectorAll('.edit-task-btn');
+
+    editTaskBtns.forEach(editTaskBtn => {
+        editTaskBtn.addEventListener("click", (e) => {
+            const taskId = e.currentTarget.dataset.id;
+            const task = todoArray.find(t => t.taskId === Number(taskId));
+            if(task){
+                openTaskDialog(task);
+            }
+        })
+    });
     
     deleteTaskBtns.forEach(deleteTaskBtn => { 
         deleteTaskBtn.addEventListener("click", (e) => {
