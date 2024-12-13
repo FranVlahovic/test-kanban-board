@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="84bb4fc080631c2605f1.css">
+<script defer src="main.js"></script></head>
+<body>
+    <dialog class="task-dialog">
+        <form class="task-form" action="/" method="get">
+            <h3>Task Details</h3>
+            <p>Enter your Task name and category.</p>
+            <input type="text" placeholder="Name" class="task-name-input" minlength="3" maxlength="30" required>
+            <input type="text" placeholder="Category" class="task-category-input" minlength="3" maxlength="20" required>
+            <div class="form-buttons">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="confirm-btn">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="confirm">
+        <div class="confirm-div">
+            <h3>Delete Task?</h3>
+            <p>This task will be permanently deleted.</p>
+            <div class="form-buttons">
+            <button type="button" class="confirm-cancel-btn">Cancel</button>
+            <button type="submit" class="delete-btn">Delete</button>
+            </div>
+        </div>
+        
+    </dialog>
+
+    <header id="header">
+        <h1 class="header-logo"><img src="https://em-content.zobj.net/source/apple/391/writing-hand_light-skin-tone_270d-1f3fb_1f3fb.png" alt="Hand Writing Emoji">KanbanBoard</h1>
+    </header>
+    <main id="main">
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">To Do</h2>
+                <span class="task-counter">0</span>
+            </div>
+            
+            <div id="todo-container" class="task-container">
+            </div>
+
+            <button class="add-task">+ Add Task</button>
+        </div>
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">In Progress</h2>
+                <span class="inprogress-counter">0</span>
+            </div>
+            
+            <div id="inprogress-container" class="task-container">
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="container-header">
+                <h3 class="container-heading">Done</h2>
+                <span class="done-counter">0</span>
+            </div>
+            
+            <div id="done-container" class="task-container">
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer"><a href="https://github.com/FranVlahovic"><img src="550985caaa8859d4b95f.svg" alt="GitHub Icon" class="github-icon"></a></footer>
+</body>
+</html>
