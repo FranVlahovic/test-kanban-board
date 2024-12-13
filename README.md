@@ -45,13 +45,15 @@
 - [Acknowledgments](#acknowledgments)
 
 ## About The Project
-![IMG_1923](https://github.com/user-attachments/assets/ef1e1e07-89b4-4737-9a42-461b5c7ee620)
-![IMG_1924](https://github.com/user-attachments/assets/2da5d570-4d22-498d-ae70-14e460b08674)
-![IMG_1925](https://github.com/user-attachments/assets/54ad21f7-79f0-40b6-8f9b-8bb37399b90d)
-![IMG_1926](https://github.com/user-attachments/assets/53eee6ec-14b8-46ed-a0fc-350881c616c5)
-![IMG_1927](https://github.com/user-attachments/assets/a89c1abf-28a6-467a-8a41-fa03676237b5)
-![IMG_1928](https://github.com/user-attachments/assets/89bfbc56-f636-4f31-bd22-829903614561)
-![IMG_1929](https://github.com/user-attachments/assets/8fbe38da-54d8-4acf-b8ab-9def05b698c2)
+<div align="left" class="gallery">
+  <img src="https://github.com/user-attachments/assets/163e2fc8-f61b-4b8d-8bc6-4637fdb1f551" alt="Image 1" width="200px">
+  <img src="https://github.com/user-attachments/assets/26126011-528c-4dcf-a93a-04428c420f42" alt="Image 2" width="200px">
+  <img src="https://github.com/user-attachments/assets/19fc0348-556a-48a3-b5de-51e04262865a" alt="Image 3" width="200px">
+  <img src="https://github.com/user-attachments/assets/b312ac24-9f2a-4ad1-b00b-d17c7a64cdd6" alt="Image 4" width="200px">
+  <img src="https://github.com/user-attachments/assets/ba054bcd-34a4-4cfb-94b9-2a0ece7229c4" alt="Image 5" width="200px">
+  <img src="https://github.com/user-attachments/assets/46e99ab0-a6a1-451d-8138-bce236b3d49d" alt="Image 6" width="200px">
+  <img src="https://github.com/user-attachments/assets/23a40f88-44a2-45b7-a024-d5d811ee8283" alt="Image 7" width="200px">
+</div>
 
 The **Test Kanban Board** project is a web-based application for managing tasks and workflows using the Kanban methodology. This project emphasizes simplicity, interactivity, and user-friendliness, making it an excellent tool for personal or team productivity. The application allows users to create, update, and manage tasks across different stages efficiently.
 
