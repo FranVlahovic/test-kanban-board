@@ -8,13 +8,11 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<image>
+![Dizajn bez naslova](https://github.com/user-attachments/assets/f7a52eb8-b071-4a96-8ceb-092d724fd7e3)
+
+
 <br />
 <div align="center">
-  <a href="https://github.com/FranVlahovic/test-kanban-board">
-    <img src="images/logo.png" alt="Logo" width="100" height="100">
-  </a>
-
   <h3 align="center">Test Kanban Board</h3>
 
   <p align="center">
@@ -23,7 +21,7 @@
     <a href="https://github.com/FranVlahovic/test-kanban-board"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://your-live-demo-link.com">View Demo</a>
+    <a href="https://franvlahovic.github.io/test-kanban-board/">View Demo</a>
     ·
     <a href="https://github.com/FranVlahovic/test-kanban-board/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -41,15 +39,19 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgments](#acknowledgments)
 
 ## About The Project
-
-[![Product Screenshot][product-screenshot]](https://your-live-demo-link.com)
+![IMG_1923](https://github.com/user-attachments/assets/ef1e1e07-89b4-4737-9a42-461b5c7ee620)
+![IMG_1924](https://github.com/user-attachments/assets/2da5d570-4d22-498d-ae70-14e460b08674)
+![IMG_1925](https://github.com/user-attachments/assets/54ad21f7-79f0-40b6-8f9b-8bb37399b90d)
+![IMG_1926](https://github.com/user-attachments/assets/53eee6ec-14b8-46ed-a0fc-350881c616c5)
+![IMG_1927](https://github.com/user-attachments/assets/a89c1abf-28a6-467a-8a41-fa03676237b5)
+![IMG_1928](https://github.com/user-attachments/assets/89bfbc56-f636-4f31-bd22-829903614561)
+![IMG_1929](https://github.com/user-attachments/assets/8fbe38da-54d8-4acf-b8ab-9def05b698c2)
 
 The **Test Kanban Board** project is a web-based application for managing tasks and workflows using the Kanban methodology. This project emphasizes simplicity, interactivity, and user-friendliness, making it an excellent tool for personal or team productivity. The application allows users to create, update, and manage tasks across different stages efficiently.
 
